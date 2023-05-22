@@ -59,7 +59,7 @@ def getPostData(post, jsonResult, cnt):
 # [CODE 0]
 def main():
     node = 'news'  # 크롤링 할 대상을 결정
-    srcText = input('검색어를 입력하세요: ')
+    srcText = input('꿍디의 뉴스 검색기입니다! 검색어를 입력하세요. : ')
     cnt = 0
     jsonResult = []
 
@@ -82,7 +82,7 @@ def main():
 
         outfile.write(jsonFile)
 
-    print("가져온 데이터 : %d 건" % (cnt))
+    print("가져온 데이터는 %d 건입니다!" % (cnt))
     print('%s_naver_%s.json SAVED' % (srcText, node))
 
 #이 파일을 실행시키는곳이 이 파일이랑 동일시할때 실행하는 코드
