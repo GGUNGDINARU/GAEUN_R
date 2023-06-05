@@ -34,7 +34,7 @@ def getNaverSearch(node, srcText, start, display):
     parameters = "?query=%s&start=%s&display=%s" % (urllib.parse.quote(srcText), start, display)
 
     url = base + node + parameters
-    responseDecode = getRequestUrl(url)  #첫 번째코드 
+    responseDecode = getRequestUrl(url)
 
     if (responseDecode == None):
         return None
@@ -63,17 +63,17 @@ def main():
     cnt = 0
     jsonResult = []
 
-    jsonResponse = getNaverSearch(node, srcText, 1, 100)  #두 번째 코드
+    jsonResponse = getNaverSearch(node, srcText, 1, 100)  
     total = jsonResponse['total'] #몇 개의 데이터를 불러왔는지 받는 변수
 
     #데이터를 하나씩 계속 받는 반복문
     while ((jsonResponse != None) and (jsonResponse['display'] != 0)):
         for post in jsonResponse['items']:
             cnt += 1
-            getPostData(post, jsonResult, cnt)  #세 번째 코드
+            getPostData(post, jsonResult, cnt)
 
         start = jsonResponse['start'] + jsonResponse['display']
-        jsonResponse = getNaverSearch(node, srcText, start, 100)  #두 번째 코드
+        jsonResponse = getNaverSearch(node, srcText, start, 10)  
 
     print('전체 검색 : %d 건' % total)
 
